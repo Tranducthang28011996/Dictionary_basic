@@ -1,0 +1,29 @@
+// Place all the styles related to the Articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#content{
+	margin: auto;
+	width: 900px;
+	
+	margin: auto;}
+#search{
+	margin: auto;
+	padding-top: 100px;
+	margin-left: -15px;
+}
+#title-search{
+	width: 800px;
+	height: 50px;
+	line-height: 50px;
+	padding-top: 50px;
+}
+table, th, td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+
+}
+th, td {
+    padding: 5px;
+    text-align: left;    
+    border-collapse: collapse;
+}

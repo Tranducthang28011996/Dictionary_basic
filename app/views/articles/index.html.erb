@@ -8,13 +8,14 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$(".btnSearch").click(function() {
-			var txtSearch = $("#txtSearch").val(); // lay cai text khi nhập vào inpput có id là txtSearch
+			var txtSearch = $("#txtSearch").val(); // lay cai text trong input khi nhập vào inpput có id là txtSearch
 			if(txtSearch == "") {
 				alert('Input data please!');
 			}else {
 				$("#isLoading").show();
+				$(".btnSearch").hide();
 				$.ajax({
-				   url: 'http://localhost:3000/getdata?gettext=' + txtSearch,
+				   url: 'http://localhost:3000/getdata?search=' + txtSearch,//truyen gia tri tu the input len duong dan trang getdata
 				   error: function() {
 				      alert('Data load fail!');// loi seẽ thông báo cái này
 				   },
@@ -24,13 +25,13 @@
 				   },
 				}).done(function() {
 					$("#isLoading").hide();
+					$(".btnSearch").show();
 				});
 			}
 			return false;
 		});
 		
 	});
-
 </script>
 <body>
 <div id="content">
@@ -38,18 +39,19 @@
 	<div id="search">
 		<form>
 	    	<div class="form-group col-sm-4">
-	      		<input type="text" class="form-control" placeholder="Search Keyword" name="gettext" required id="txtSearch">
+	      		<input type="text" class="form-control" placeholder="Search Keyword" name="" required id="txtSearch">
 	      		<br />
 	      		<select class="form-control">
 		        <option>Anh-Việt</option>
 		        <option>Việt-Anh</option>
      		 </select>
      		 <br />
-     		  <button type="submit" class="btn btn-primary btnSearch">Search</button>
-     		  <span id="isLoading" style="display: none;">Loading...</span>
+     		  <button type="submit" class="btn btn-primary btnSearch" style="display: block;">Search</button>
+     		  
+     		  <button type="submit" style="display: none;" class="btn btn-primary" id = "isLoading">Loading ....</button>
 	    	</div>
 	</div>
-	<table style="width:100%" id="getData"></table>
+	<div style="width:100%" id="getData"></div>
 </div>
 </body>
 </html>

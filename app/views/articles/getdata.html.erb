@@ -1,33 +1,17 @@
-	<tr>
-		<th>
-		<table>
-			<% dem = 0 %>
-	 		<%= @images.each do |image| %>
-			<tr>
-				<th><%= image_tag image.values[1], size: "150" %><br /></th>
-			</tr>
+    
+<% dem = 0 %>
+	<%= @images.each do |image| %>
+		<%= image_tag image.values[1], size: "150" %>
 			<% dem+=1 %>
-		    <% break if dem==3 %>
-		<% end %>
-		</table>
-		</th>
-	</tr>
-	<tr>
-	    <th><b>Translation</b>
-	    <tr>
-	    	<td><b>Keyword</b> : <%= @keyword.downcase %></td>
-	    	<td style="text-align: center;"><b>Spelling</b></td>
-	    </tr>
-	    </th>
-	</tr>
-	  <tr>
-	    <td>
+		<% break if dem==3 %>
+	<% end %>
+<div class="row">
+  <p style="font-size: 20px; font-weight: bold; color: blue; margin-left: 300px; margin-top: 50px">
+  </p>
 
-	    <%= @load2.each do |thing| %>
+  <p style="font-size: 15px; font-weight: italic; margin-left: 350px; margin-top: 10px">
+    	<%= @load2.each do |thing| %>
 	    	<%= thing.text %><br />
-	    <% end %>
-	    </td>
-	    <td colspan="1" style="text-align: center;">
-	    <%= "#{@load1.text}" %>
-	    </td>
-	 </tr>	    
+	    <% end %> 
+  </p>    
+</div>   

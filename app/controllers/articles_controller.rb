@@ -21,8 +21,6 @@ class ArticlesController < ApplicationController
 		html_doc = Nokogiri::HTML(open(uri))
 		@images = html_doc.css("a > img")
 		render :layout => false
-
-		
 	end
 	
   end

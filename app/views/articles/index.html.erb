@@ -2,9 +2,22 @@
 <html>
 <head>
 	<title>SmartDic</title>
-</head>
-<style type="text/css">
+<style>
+.buttonload {
+    background-color: #4DC71F; /* Green background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 12px 24px; /* Some padding */
+    font-size: 16px; /* Set a font-size */
+}
+
+/* Add a right margin to each icon */
+.fa {
+    margin-left: -12px;
+    margin-right: 8px;
+}
 </style>
+</head>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$(".btnSearch").click(function() {
@@ -17,6 +30,8 @@
 				$.ajax({
 				   url: 'http://localhost:3000/getdata?search=' + txtSearch,//truyen gia tri tu the input len duong dan trang getdata
 				   error: function() {
+				    $("#isLoading").hide();
+					$(".btnSearch").show();
 				      alert('Data load fail!');// loi seẽ thông báo cái này
 				   },
 				   dataType : 'text', // loại dữ liệu mình lấy về
@@ -46,13 +61,18 @@
 		        <option>Việt-Anh</option>
      		 </select>
      		 <br />
-     		  <button type="submit" class="btn btn-primary btnSearch" style="display: block;">Search</button>
+     		  <button type="submit" class="buttonload btnSearch" style="display: block;">Search</button>
+     		  <button class="buttonload" id="isLoading" style="display: none;">
+  			  <i class="fa fa-spinner fa-spin"></i>Loading
+</button>
      		  
-     		  <button type="submit" style="display: none;" class="btn btn-primary" id = "isLoading">Loading ....</button>
+     		 <!--  <button type="submit" style="display: none;" class="btn btn-primary" id = "isLoading">Loading ....</button> -->
 	    	</div>
 	</div>
 	<div style="width:100%" id="getData"></div>
 </div>
+
+
 </body>
 </html>
 

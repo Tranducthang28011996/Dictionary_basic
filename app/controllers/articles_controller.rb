@@ -16,7 +16,6 @@ class ArticlesController < ApplicationController
 		soha = Array.new
 		soha = page.css("div#content-5 h5")
 		@load2 = soha
-		# byebug
 		uri = URI("https://www.google.co.kr/search?q="+params[:search]+"&es_sm=93&source=lnms&tbm=isch&sa=X&ved=0CAcQ_AUoAWoVChMIxs2HlMH4xwIVouWmCh1nigKU&biw=1600&bih=775")
 		html_doc = Nokogiri::HTML(open(uri))
 		@images = html_doc.css("a > img")

@@ -28,8 +28,8 @@
 				$("#isLoading").show();
 				$(".btnSearch").hide();
 				$.ajax({
-					url: 'http://localhost:8080/getdata?search=' + txtSearch,
-				   // url: 'https://smartdic.herokuapp.com/getdata?search=' + txtSearch,//truyen gia tri tu the input len duong dan trang getdata
+					//url: 'http://localhost:8080/getdata?search=' + txtSearch,
+				   url: 'https://smartdic.herokuapp.com/getdata?search=' + txtSearch,//truyen gia tri tu the input len duong dan trang getdata
 				   error: function() {
 				    $("#isLoading").hide();
 					$(".btnSearch").show();
